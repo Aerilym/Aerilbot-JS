@@ -1,1 +1,7 @@
 /config.json
+node_modules
+givendata/aerilbot.json
+givendata/aerilym_.json
+givendata/combonumber8.json
+givendata/lnrbry.json
+ticker.txt
