@@ -30,7 +30,7 @@ module.exports = {
 		}
 
 		intervalDiscord = setInterval(timerX(`discord`), mins(63));
-		intervalClip = setInterval(timerX(`clip`), mins(40));
+		intervalClip = setInterval(timerX(`bros`), mins(40));
 		intervalSocials = setInterval(timerX(`socials`), mins(79));
 
 		clearInterval(intervalDiscord);
@@ -38,7 +38,7 @@ module.exports = {
 		clearInterval(intervalSocials);
 
 		intervalDiscord = setInterval(timerX(`discord`), mins(63));
-		intervalClip = setInterval(timerX(`clip`), mins(40));
+		intervalClip = setInterval(timerX(`bros`), mins(40));
 		intervalSocials = setInterval(timerX(`socials`), mins(79));
 		
 	}

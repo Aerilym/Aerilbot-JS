@@ -25,7 +25,8 @@ const opts = {
 		`#merketo`,
 		`#yogscast`,
 		`#SyberCeraph`,
-		`#Tschuggz`
+		`#Tschuggz`,
+		`#jinxed_central`
 	]
 };
 
@@ -173,21 +174,21 @@ const linkhandle = require('./linkhandle.js');
 const cooldowns = new Discord.Collection();
 let msgTime = {};
 let msgSender = {};
-clientT.commandsT.get('timers').execute(`#aerilym_`, require(`./givendata/aerilbot.json`));
-clientT.commandsT.get('who').execute(`#aerilym_`, require(`./givendata/aerilbot.json`), ``, false, [`reset`]);
+clientT.commandsT.get('timers').execute(`#aerilym`, require(`./givendata/aerilbot.json`));
+clientT.commandsT.get('who').execute(`#aerilym`, require(`./givendata/aerilbot.json`), ``, false, [`reset`]);
 
 function onMessageHandler (target, userstate, msg, self) {/*Message Handler*/
 	if (msg.toLowerCase() === `aerilbot yes`) { var yesResponse = Math.random(); if (yesResponse >= 0 && yesResponse < 0.5 ) { clientT.say(target, `:)`); }	/*50%*/ if (yesResponse >= 0.5 && yesResponse < 0.75 ) { clientT.say(target, `:D`); } /*25%*/ if (yesResponse >= 0.75 && yesResponse < 0.9 ) { clientT.say(target, `LUL`); } /*15%*/ if (yesResponse >= 0.9 && yesResponse <= 1 ) { clientT.say(target, `aerilyPog `); } /*10%*/ }
 	if (msg.toLowerCase() === `aerilbot no`) { var yesResponse = Math.random(); if (yesResponse >= 0 && yesResponse < 0.5 ) { clientT.say(target, `:(`); }	/*50%*/ if (yesResponse >= 0.5 && yesResponse < 0.75 ) { clientT.say(target, `D:`); } /*25%*/ if (yesResponse >= 0.75 && yesResponse < 0.9 ) { clientT.say(target, `FeelsBadMan`); } /*15%*/ if (yesResponse >= 0.9 && yesResponse <= 1 ) { clientT.say(target, `monkaGun `); } /*10%*/ }
-	if (target !== `#aerilym_`) {
-		if (userstate.username === `aerilym_` && msg.charAt(0) === `-`) { clientT.say(target, msg.substring(1,msg.length));
+	if (target !== `#aerilym`) {
+		if (userstate.username === `aerilym` && msg.charAt(0) === `-`) { clientT.say(target, msg.substring(1,msg.length));
 		}
 		if (msg.toLowerCase().includes(`aerilym`) || msg.toLowerCase().includes(`aerilym_`) || msg.toLowerCase().includes(`@aerilym`) || msg.toLowerCase().includes(`@aerilym_`)) {
 			const fullmessage = target + ` | ` + userstate.username + `: ` + msg;
 			clientD.commandsD.get('chattrack').execute(msg, fullmessage);
 		}
 	}
-	if (target !== `#aerilym_`&&target !== `#aerilbot`&&target !== `#aerilym`&&target !== `#aerilbot2`&&target !== `#aerilym2`) { return; }
+	if (target !== `#aerilym`&&target !== `#aerilbot`&&target !== `#aerilbot2`&&target !== `#aerilym2`) { return; }
 	
 	//Personal
 	const now = Date.now();
@@ -207,7 +208,7 @@ function onMessageHandler (target, userstate, msg, self) {/*Message Handler*/
 		delete require.cache[require.resolve('./linkpermit.json')];
 		const linkPermit = require('./linkpermit.json');
 		if (permissions.Mod(userstate)) { console.log('Mod link allowed'); } else if (userstate.badges) { if(userstate.badges.vip) { console.log('VIP link allowed'); }
-		} else if (linkPermit.slice(1,-1)===userstate.username.toLowerCase()) {const linkPermitName = JSON.stringify("aerilym_"); fs.writeFile('linkpermit.json', JSON.stringify(linkPermitName, null, 4), 'utf8', (err) => { if (err) throw err })
+		} else if (linkPermit.slice(1,-1)===userstate.username.toLowerCase()) {const linkPermitName = JSON.stringify("aerilym"); fs.writeFile('linkpermit.json', JSON.stringify(linkPermitName, null, 4), 'utf8', (err) => { if (err) throw err })
 		} else { linkhandle.scanLink(target, userstate, msg, self); }
 	}
 
@@ -215,13 +216,13 @@ function onMessageHandler (target, userstate, msg, self) {/*Message Handler*/
 	if (msg.toLowerCase().includes(`poggies`) && !msg.includes(config.prefix)) { clientT.say(target, `POGGIES POGGIES POGGIES `)}
 	if (msg.toLowerCase().includes(`pogslide`) && !msg.includes(config.prefix)) { clientT.say(target, `POGSLIDE POGSLIDE POGSLIDE `)}
 	if (msg.toLowerCase().includes(`corona`) || msg.toLowerCase().includes(`sick`) || msg.toLowerCase().includes(`virus`) || msg.toLowerCase().includes(`quarantine`)) { clientT.say(target, `aerilyHazmat PepoHazmat `)}
-	if ((msg.toLowerCase().includes(`how`) && msg.toLowerCase().includes(`join`)) || (msg.toLowerCase().includes(`ip`) && msg.toLowerCase().includes(`what`))) { clientT.commandsT.get('discord').execute(`#aerilym_`, require(`./givendata/aerilbot.json`), msg=`ip @${userstate.username}`, false, [`ip`, `@${userstate.username}`]); }
+	if ((msg.toLowerCase().includes(`how`) && msg.toLowerCase().includes(`join`)) || (msg.toLowerCase().includes(`ip`) && msg.toLowerCase().includes(`what`))) { clientT.commandsT.get('discord').execute(`#aerilym`, require(`./givendata/aerilbot.json`), msg=`ip @${userstate.username}`, false, [`ip`, `@${userstate.username}`]); }
 	
 
 	if (userstate['custom-reward-id']) { /*Reward handler*/
 		if (userstate['custom-reward-id']==='0aad94bd-aa90-4ee8-ba0d-bd87b420cb2f') { if(!userstate.mod) {try {clientT.timeout(target, userstate.username, 426, "They Redeemed Devil's Time Out"); } catch (error) { } } }
 		if (userstate['custom-reward-id']==='1d25daa1-09f2-4c6c-9278-ab31d4f265eb') { clientT.say(target, `drinkWater drinkWater drinkWater`); }
-		if (userstate['custom-reward-id']==='d090246b-cef2-4a93-865c-6f1ab2319fc6') { clientTListen.commercial("#aerilym_", 30).then((data) => {}).catch((error) => {}); clientT.say(target, `@${userstate.username} used their AerilCoins to run a 30s ad, If you're not a sub Aerilym is sorry about the interruption LuvSign maybe @${userstate.username} can gift you a sub :)`)}
+		if (userstate['custom-reward-id']==='d090246b-cef2-4a93-865c-6f1ab2319fc6') { clientTListen.commercial("#aerilym", 30).then((data) => {}).catch((error) => {}); clientT.say(target, `@${userstate.username} used their AerilCoins to run a 30s ad, If you're not a sub Aerilym is sorry about the interruption LuvSign maybe @${userstate.username} can gift you a sub :)`)}
 		if (userstate['custom-reward-id']==='d04a790c-ea67-461b-9993-f6f9990eb0df') { if(!userstate.mod) { if (userstate.badges) { if(userstate.badges.vip) { return; } } { 
 			try {clientTListen.say(target, `/vip ${userstate.username}`); 
 			delete require.cache[require.resolve('./vipuse.json')];
@@ -251,7 +252,7 @@ function onMessageHandler (target, userstate, msg, self) {/*Message Handler*/
 	if (!commandT) return;
 	
 	//Personal cooldown handler
-	if (userstate.username != `aerilym_`) {
+	if (userstate.username != `aerilym`) {
 		if (!cooldowns.has(commandNameT)) {
 			cooldowns.set(commandNameT, new Discord.Collection());
 		}

@@ -1,7 +1,7 @@
 module.exports = {
-	name: 'shoutout',
+	name: 'shoutout2',
 	cooldown: 5,
-	aliases: ['so'],
+	aliases: ['so2'],
 	description: 'shoutout',
 	use: '!shoutout',
 
@@ -21,7 +21,7 @@ module.exports = {
 
 		const twitchgetuser = axios.create({
 			baseURL: 'https://api.twitch.tv',
-			headers: {'Client-ID': config.CLIENT_ID, 'Authorization':config.token},
+			headers: {'Client-ID': config.CLIENT_ID},
 		  });
 
 		twitchgetuser.get(`/helix/streams?user_login=${soTarget.toLowerCase()}`)
